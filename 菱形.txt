@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+ 
+int main()
+{
+	int a,b,c,d,e,f;//對角線長度,上行數,空白數,星號數,中線
+	printf("請勿輸入非數字。n");
+	A:printf("請輸入菱形對角線長度(必須是奇數)，離開請輸入0：");
+	scanf("%d",&a);
+	if(a==0)//輸入0即結束程式
+	{
+		return 0;
+	}
+	if(a%2==0)//確認是奇數才繼續執行
+	{
+		goto A;
+	}
+	f=(a+1)/2;//中線值等於對角線長度+1除以2
+	for(b=1;b<=f;b++)//畫出菱形上半部(含最中間那行)
+	{
+		for(d=f-b;d>0;d--)//畫空白
+		{
+		printf(" ");
+		}
+		for(e=1;e<=2*b-1;e++)//畫星號
+		{
+			printf("*");
+		}
+		printf("n");//換行
+	}
+	for(b=f-1;b>0;b--)
+	{
+		for(d=f-b;d>0;d--)//畫空白
+		{
+			printf(" ");
+		}
+		for(e=1;e<=2*b-1;e++)//畫星號
+		{
+			printf("*");
+		}
+		printf("n");//換行
+	}
+	goto A;//繼續畫下一個菱形
+}
